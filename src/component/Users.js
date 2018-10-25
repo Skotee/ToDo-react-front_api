@@ -3,6 +3,9 @@ import axios from 'axios';
 
 class Users extends React.Component {
 
+    state = {
+        users: [],
+    };
 
     componentDidMount() {
         axios.get(
@@ -16,6 +19,7 @@ class Users extends React.Component {
             .then((response) => {
                 var response = response.data;
                 console.log(response);
+                this.setState({ users: response })
             },
                 (error) => {
                     var status = error.response.status;
@@ -26,8 +30,13 @@ class Users extends React.Component {
     render() {
         return (
             <div>
-                <button>View user</button>
-            </div>
+                {/* <ul>
+                    {this.state.users.map(users => <li>{users.name}</li>)}
+                </ul> */}
+                <div>
+                    <button>View users</button>
+                </div>
+            </div >
         )
     }
 }

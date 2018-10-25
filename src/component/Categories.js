@@ -3,6 +3,10 @@ import axios from 'axios';
 
 class Categories extends React.Component {
 
+    state = {
+        categories: [],
+    };
+
     componentDidMount() {
         axios.get(
             'http://localhost:3001/categories',
@@ -15,6 +19,7 @@ class Categories extends React.Component {
             .then((response) => {
                 var response = response.data;
                 console.log(response);
+                this.setState({ categories: response })
             },
                 (error) => {
                     var status = error.response.status;
@@ -25,7 +30,12 @@ class Categories extends React.Component {
     render() {
         return (
             <div>
-                <button>View categories</button>
+                <ul>
+                    {this.state.categories.map(categories => <li>{categories.name}</li>)}
+                </ul>
+                <div>
+                    <button>View categories</button>
+                </div>
             </div>
         )
     }
