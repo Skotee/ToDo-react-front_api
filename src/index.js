@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {Todos} from "./component/Todos.js"
+import { Users } from "./component/Users.js"
+import { Categories } from "./component/Categories.js"
+import { Labels } from "./component/Labels.js"
+
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
