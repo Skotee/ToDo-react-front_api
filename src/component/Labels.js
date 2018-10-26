@@ -30,6 +30,8 @@ class Labels extends React.Component {
     render() {
         return (
             <div>
+                <h1>Labels:</h1>
+
                 <ul>
                     {this.state.labels.map(labels => <li>{labels.name}</li>)}
                 </ul>

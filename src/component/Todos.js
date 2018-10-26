@@ -48,8 +48,10 @@ class Todos extends React.Component{
     render() {
         return (
             <div>
+                <h1>Todos:</h1>
+
                 <ul>
-                    {this.state.todos.map(todos => <li>{todos.name}</li>)}
+                    {this.state.todos.map(todos => <li>{todos.name},{todos.description},{todos.category.name}</li> )}
                 </ul>
                 
                 <form onSubmit={this.handleSubmit}>
