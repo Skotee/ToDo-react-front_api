@@ -29,15 +29,11 @@ class Users extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>Users:</h1>
-
-                {/* <ul>
-                    {this.state.users.map(users => <li>{users.name}</li>)}
-                </ul> */}
-                <div>
-                    <button>View users</button>
-                </div>
+            <div className="container">
+                <h4>Users:</h4>
+                <ul>
+                    {this.state.users.name}
+                </ul>
             </div >
         )
     }

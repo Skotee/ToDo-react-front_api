@@ -39,33 +39,49 @@ class Todos extends React.Component{
         };
 
         axios.post('http://localhost:3001/categories/${id}/add-todo' )
-            .then(res => {
-                console.log(res);
-                console.log(res.data);
+            .then((response) => {
+                var response = response.data;
+                console.log(response);
+                this.setState({ todos: response })
             })
     }
 
+        // axios.delete(`http://localhost:3001/todos/${id}/`)
+        //     .then(res => {
+        //     console.log(res);
+        //     console.log(res.data);
+
     render() {
         return (
-            <div>
-                <h1>Todos:</h1>
+            <div className="container">
+                <h4 className="#01579b light-blue darken-4 center z-depth-5 white-text">To Do:</h4>
 
-                <ul>
-                    {this.state.todos.map(todos => <li>{todos.name},{todos.description},{todos.category.name}</li> )}
-                </ul>
-                
+                <div className="row">
+                    {this.state.todos.map(
+                        todos =>
+                            <div className="col s12 m6">
+                                <div className="card blue-grey darken-1">
+                                    <div className="card-content white-text">
+                                        <span className="card-title">{todos.name}</span>
+                                        <p>{todos.description}</p>
+                                        <p>Category: {todos.category.name}</p>
+                                    </div>
+                                    <div className="card-action">
+                                        <a href="#">Edit</a>
+                                        <a href="#">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                </div>
+
                 <form onSubmit={this.handleSubmit}>
                     <label>
-                        Enter todo:
-                        <input type="text" name="name" onChange={this.handleChange} />
+                        Enter new todo:
                     </label>
-                    <button type="submit">Add</button>
+                        <input type="text" name="name" onChange={this.handleChange} />
+                        <button className="btn-floating btn-large waves-effect waves-light red" type="submit"><i class="material-icons">+</i></button>
                 </form>
-
-
-                <div>
-                    <button>View todo</button>
-                </div>
             </div>
         )
     }

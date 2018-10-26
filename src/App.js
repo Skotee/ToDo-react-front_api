@@ -40,11 +40,11 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="bgimg">
         <Todos/>
-        <Users />
         <Categories/>
         <Labels />
+        <Users />
       </div>
     )
   

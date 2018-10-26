@@ -29,15 +29,11 @@ class Categories extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>Categories:</h1>
+            <div className="container">
+                <h4 >Available categories:</h4>
                 <ul>
                     {this.state.categories.map(categories => <li>{categories.name}</li>)}
-                    {this.state.categories.map(categories => <li>{categories.labels.name}</li>)}
                 </ul>
-                <div>
-                    <button>View categories</button>
-                </div>
             </div>
         )
     }

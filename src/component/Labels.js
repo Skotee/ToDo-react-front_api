@@ -29,15 +29,11 @@ class Labels extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>Labels:</h1>
-
+            <div className="container">
+                <h4>Available labels:</h4>
                 <ul>
                     {this.state.labels.map(labels => <li>{labels.name}</li>)}
                 </ul>
-                <div>
-                    <button>View labels</button>
-                </div>
             </div>
         )
     }
